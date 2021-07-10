@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:dqc="http://standards.iso.org/iso/19157/-2/dqc/1.0"
+        xmlns:gco="http://standards.iso.org/iso/19115/-3/gco/1.0"
+        xmlns:lan="http://standards.iso.org/iso/19115/-3/lan/1.0"
+        xmlns:mcc="http://standards.iso.org/iso/19115/-3/mcc/1.0"
+        xmlns:mdb="http://standards.iso.org/iso/19115/-3/mdb/2.0"
+        elementFormDefault="qualified"
+        targetNamespace="http://standards.iso.org/iso/19115/-3/mdb/2.0"
+        version="1.0">
+  <include schemaLocation="mdb.xsd"/>
+  <import namespace="http://standards.iso.org/iso/19115/-3/gco/1.0" schemaLocation="../../../../19115/-3/gco/1.0/gco.xsd"/>
+  <import namespace="http://standards.iso.org/iso/19157/-2/dqc/1.0" schemaLocation="../../../../19157/-2/dqc/1.0/dqc.xsd"/>
+  <import namespace="http://standards.iso.org/iso/19115/-3/lan/1.0" schemaLocation="../../../../19115/-3/lan/1.0/lan.xsd"/>
+  <import namespace="http://standards.iso.org/iso/19115/-3/mcc/1.0" schemaLocation="../../../../19115/-3/mcc/1.0/mcc.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element name="MD_Metadata" substitutionGroup="mcc:Abstract_Metadata" type="mdb:MD_Metadata_Type">
+    <annotation>
+      <documentation>Корневая сущность, которая определяет метаданные о ресурсе или ресурсах</documentation>
+    </annotation>
+  </element>
+  <complexType name="MD_Metadata_Type">
+    <complexContent>
+      <extension base="mcc:Abstract_Metadata_Type">
+        <sequence>
+          <element minOccurs="0" maxOccurs="1" name="metadataIdentifier" type="mcc:MD_Identifier_PropertyType"/>
+          <element minOccurs="0" maxOccurs="1" name="defaultLocale" type="lan:PT_Locale_PropertyType">
+            <annotation>
+              <documentation>Язык и кодировка, использованные для документирования метаданных</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" maxOccurs="1" name="parentMetadata" type="mcc:Abstract_Citation_PropertyType">
+            <annotation>
+              <documentation>Идентификация записи родительских метаданных</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="metadataScope" type="mdb:MD_MetadataScope_PropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="1" name="contact" type="mcc:Abstract_Responsibility_PropertyType">
+            <annotation>
+              <documentation>Сторона, ответственная за информацию о метаданных</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="1" name="dateInfo" type="mcc:Abstract_TypedDate_PropertyType">
+            <annotation>
+              <documentation>Дата(ы), ассоциированная(ые) с метаданными.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="metadataStandard" type="mcc:Abstract_Citation_PropertyType">
+            <annotation>
+              <documentation>Ссылка на стандарт, которому соответствуют метаданные.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="metadataProfile" type="mcc:Abstract_Citation_PropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="alternativeMetadataReference" type="mcc:Abstract_Citation_PropertyType">
+            <annotation>
+              <documentation>Ссылка на альтернативные метаданные.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="otherLocale" type="lan:PT_Locale_PropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="metadataLinkage" type="mcc:Abstract_OnlineResource_PropertyType">
+            <annotation>
+              <documentation>Адрес в Интернете, где находятся метаданные</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="spatialRepresentationInfo" type="mcc:Abstract_SpatialRepresentation_PropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="referenceSystemInfo" type="mcc:Abstract_ReferenceSystem_PropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="metadataExtensionInfo" type="mcc:Abstract_MetadataExtension_PropertyType"/>
+          <element maxOccurs="unbounded" name="identificationInfo" type="mcc:Abstract_ResourceDescription_PropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="contentInfo" type="mcc:Abstract_ContentInformation_PropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="distributionInfo" type="mcc:Abstract_Distribution_PropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="dataQualityInfo" type="dqc:Abstract_DataQuality_PropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="resourceLineage" type="mcc:Abstract_LineageInformation_PropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="portrayalCatalogueInfo" type="mcc:Abstract_PortrayalCatalogueInformation_PropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="metadataConstraints" type="mcc:Abstract_Constraints_PropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="applicationSchemaInfo" type="mcc:Abstract_ApplicationSchemaInformation_PropertyType"/>
+          <element minOccurs="0" name="metadataMaintenance" type="mcc:Abstract_MaintenanceInformation_PropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="MD_Metadata_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="mdb:MD_Metadata"/>
+    </sequence>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="MD_MetadataScope" substitutionGroup="gco:AbstractObject" type="mdb:MD_MetadataScope_Type"/>
+  <complexType name="MD_MetadataScope_Type">
+    <complexContent>
+      <extension base="gco:AbstractObject_Type">
+        <sequence>
+          <element name="resourceScope" type="mcc:MD_ScopeCode_PropertyType"/>
+          <element minOccurs="0" name="name" type="gco:CharacterString_PropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="MD_MetadataScope_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="mdb:MD_MetadataScope"/>
+    </sequence>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+</schema>

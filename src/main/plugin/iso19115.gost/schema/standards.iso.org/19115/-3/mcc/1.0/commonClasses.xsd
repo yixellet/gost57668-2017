@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gco="http://standards.iso.org/iso/19115/-3/gco/1.0" xmlns:mcc="http://standards.iso.org/iso/19115/-3/mcc/1.0" elementFormDefault="qualified" targetNamespace="http://standards.iso.org/iso/19115/-3/mcc/1.0" version="1.0">
+  <include schemaLocation="mcc.xsd"/>
+  <import namespace="http://standards.iso.org/iso/19115/-3/gco/1.0" schemaLocation="../../../../19115/-3/gco/1.0/gco.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element name="MD_BrowseGraphic" substitutionGroup="gco:AbstractObject" type="mcc:MD_BrowseGraphic_Type">
+    <annotation>
+      <documentation>Графическое изображение, которое является иллюстрацией ресурса. Примечание - Должно включать в себя легенду для графики.</documentation>
+    </annotation>
+  </element>
+  <complexType name="MD_BrowseGraphic_Type">
+    <complexContent>
+      <extension base="gco:AbstractObject_Type">
+        <sequence>
+          <element name="fileName" type="gco:CharacterString_PropertyType">
+            <annotation>
+              <documentation>Имя файла, который содержит графический элемент, который обеспечивает иллюстрацию ресурса</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="fileDescription" type="gco:CharacterString_PropertyType">
+            <annotation>
+              <documentation>Текстовое описание иллюстрации</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="fileType" type="gco:CharacterString_PropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="imageConstraints" type="mcc:Abstract_Constraints_PropertyType">
+            <annotation>
+              <documentation>Ограничение доступа и/или использование графического просмотра</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="linkage" type="mcc:Abstract_OnlineResource_PropertyType">
+            <annotation>
+              <documentation>Ссылка для просмотра графического отображения</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="MD_BrowseGraphic_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="mcc:MD_BrowseGraphic"/>
+    </sequence>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="MD_Identifier" substitutionGroup="gco:AbstractObject" type="mcc:MD_Identifier_Type">
+    <annotation>
+      <documentation>Значение, уникальным образом идентифицирующее ресурс в пределах некоего пространства имен</documentation>
+    </annotation>
+  </element>
+  <complexType name="MD_Identifier_Type">
+    <complexContent>
+      <extension base="gco:AbstractObject_Type">
+        <sequence>
+          <element minOccurs="0" name="authority" type="mcc:Abstract_Citation_PropertyType">
+            <annotation>
+              <documentation>Лицо или сторона, ответственные за поддержание этого пространства имен</documentation>
+            </annotation>
+          </element>
+          <element name="code" type="gco:CharacterString_PropertyType">
+            <annotation>
+              <documentation>Буквенно-цифровое значение, идентифицирующее экземпляр в пространстве имен. Пример - EPSG::4326</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="codeSpace" type="gco:CharacterString_PropertyType">
+            <annotation>
+              <documentation>Идентификатор или пространство имен, в которых код действителен</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="version" type="gco:CharacterString_PropertyType">
+            <annotation>
+              <documentation>Идентификатор версии для пространства имен</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="description" type="gco:CharacterString_PropertyType">
+            <annotation>
+              <documentation>Описание на естественном языке смысла значения кода. ПРИМЕР - для codeSpace = EPSG, code = 4326: описание = WGS-84</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="MD_Identifier_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="mcc:MD_Identifier"/>
+    </sequence>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="MD_ProgressCode" substitutionGroup="gco:CharacterString" type="gco:CodeListValue_Type">
+    <annotation>
+      <documentation>Статус ресурса</documentation>
+    </annotation>
+  </element>
+  <complexType name="MD_ProgressCode_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="mcc:MD_ProgressCode"/>
+    </sequence>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="MD_Scope" substitutionGroup="gco:AbstractObject" type="mcc:MD_Scope_Type">
+    <annotation>
+      <documentation>Целевой ресурс и физическая протяженность, для которых сообщается информация</documentation>
+    </annotation>
+  </element>
+  <complexType name="MD_Scope_Type">
+    <complexContent>
+      <extension base="gco:AbstractObject_Type">
+        <sequence>
+          <element name="level" type="mcc:MD_ScopeCode_PropertyType">
+            <annotation>
+              <documentation>Целевой ресурс</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="extent" type="mcc:Abstract_Extent_PropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="levelDescription" type="mcc:MD_ScopeDescription_PropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="MD_Scope_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="mcc:MD_Scope"/>
+    </sequence>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="MD_ScopeCode" substitutionGroup="gco:CharacterString" type="gco:CodeListValue_Type">
+    <annotation>
+      <documentation>Класс информации, к которому относится указываемый объект</documentation>
+    </annotation>
+  </element>
+  <complexType name="MD_ScopeCode_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="mcc:MD_ScopeCode"/>
+    </sequence>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="MD_ScopeDescription" substitutionGroup="gco:AbstractObject" type="mcc:MD_ScopeDescription_Type">
+    <annotation>
+      <documentation>Описание класса информации, охватываемого информацией</documentation>
+    </annotation>
+  </element>
+  <complexType name="MD_ScopeDescription_Type">
+    <complexContent>
+      <extension base="gco:AbstractObject_Type">
+        <choice>
+          <element name="attributes" type="gco:CharacterString_PropertyType">
+            <annotation>
+              <documentation>Экземпляры типов атрибутов, к которым относится информация</documentation>
+            </annotation>
+          </element>
+          <element name="features" type="gco:CharacterString_PropertyType">
+            <annotation>
+              <documentation>Экземпляры типов объектов, к которым относится информация</documentation>
+            </annotation>
+          </element>
+          <element name="featureInstances" type="gco:CharacterString_PropertyType">
+            <annotation>
+              <documentation>Экземпляры объектов, к которым применяется информация</documentation>
+            </annotation>
+          </element>
+          <element name="attributeInstances" type="gco:CharacterString_PropertyType">
+            <annotation>
+              <documentation>Экземпляры атрибутов, к которым относится информация</documentation>
+            </annotation>
+          </element>
+          <element name="dataset" type="gco:CharacterString_PropertyType">
+            <annotation>
+              <documentation>Набор данных, к которому относится информация</documentation>
+            </annotation>
+          </element>
+          <element name="other" type="gco:CharacterString_PropertyType">
+            <annotation>
+              <documentation>Класс информации, не попадающей в другие категории, к которым относится информация</documentation>
+            </annotation>
+          </element>
+        </choice>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="MD_ScopeDescription_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="mcc:MD_ScopeDescription"/>
+    </sequence>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="MD_SpatialRepresentationTypeCode" substitutionGroup="gco:CharacterString" type="gco:CodeListValue_Type">
+    <annotation>
+      <documentation>Метод, используемый для представления пространственных данных в наборе</documentation>
+    </annotation>
+  </element>
+  <complexType name="MD_SpatialRepresentationTypeCode_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="mcc:MD_SpatialRepresentationTypeCode"/>
+    </sequence>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="URI" substitutionGroup="gco:AbstractObject" type="mcc:URI_Type">
+    <annotation>
+      <documentation>Uniform Resource Identifier (URI), is a compact string of characters used to identify or name a resource</documentation>
+    </annotation>
+  </element>
+  <complexType name="URI_Type">
+    <complexContent>
+      <extension base="gco:AbstractObject_Type">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="URI_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="mcc:URI"/>
+    </sequence>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+</schema>

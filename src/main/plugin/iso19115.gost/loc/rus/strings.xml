@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<strings>
+
+  <!-- XSD error translation -->
+  <invalidElement>Неверное содержимое в элементе </invalidElement>
+  <onElementOf>Один из следующих элементов </onElementOf>
+  <isExpected> ожидается.</isExpected>
+  <isNotComplete> неполный.</isNotComplete>
+  <elementLocated> Родительский элемент - </elementLocated>
+  <missingElement>Пропущен элемент в </missingElement>
+  <invalidValue>Неверное или пропущенное значение.</invalidValue>
+  <notValidFor> - неверное значение для </notValidFor>
+  <xsdErrorIs>Ошибка XSD: </xsdErrorIs>
+  <inElement> в элементе </inElement>
+  <enum1>Значение </enum1>
+  <enum2> не верно для поля </enum2>
+  <enum3>Ожидаются значения: </enum3>
+
+
+  <understandResource>Информация о наборе данных</understandResource>
+  <relatedResources>Связанные сервисы и данные</relatedResources>
+  <techInfo>Техническая информацияn</contactInfo>
+  <mdContactInfo>Контактное лицо</mdContactInfo>
+  <refDate>Дата</refDate>
+  <temporalRef>Информация о времени</temporalRef>
+  <constraintInfo>Информация об ограничениях в доступе</constraintInfo>
+  <xml_iso19139>Сохранить эту запись как XML-файл стандарта ISO19139</xml_iso19139>
+  <xml_iso19139Tooai_dc>Сохранить эту запись как XML-файл стандарта OAI Dublin Core</xml_iso19139Tooai_dc>
+  <resourceLineageTab>Происхождение</resourceLineageTab>
+
+  <advanced>Полный</advanced>
+  <default>По умолчанию</default>
+  <simple>Простой</simple>
+  <inspire>INSPIRE</inspire>
+  <inspireTheme>Темы INSPIRE</inspireTheme>
+  <inspireThemeMandatory>Темы INSPIRE*</inspireThemeMandatory>
+  <resource>Ресурс</resource>
+  <xml>XML</xml>
+  <metadata>Метаданные</metadata>
+  <identificationInfo>Идентификация</identificationInfo>
+  <distributionInfo>Распространение</distributionInfo>
+  <dataQualityInfo>Качество</dataQualityInfo>
+  <resourceLineage>Происхождение</resourceLineage>
+  <spatialRepresentationInfo>Представление</spatialRepresentationInfo>
+  <referenceSystemInfo>Система отсчета</referenceSystemInfo>
+  <contentInfo>Содержимое</contentInfo>
+  <portrayalCatalogueInfo>Каталог изображений</portrayalCatalogueInfo>
+  <metadataConstraints>Ограничения</metadataConstraints>
+  <metadataMaintenance>Обновление данных</metadataMaintenance>
+  <applicationSchemaInfo>Схема</applicationSchemaInfo>
+  <acquisitionInformation>Способ получения</acquisitionInformation>
+  <qualityMeasures>Качество измерений</qualityMeasures>
+
+  <bboxesSection>Покрытие</bboxesSection>
+  <overviews>Обзор</overviews>
+  <metadataInXML>XML</metadataInXML>
+  <providedBy>Создано </providedBy>
+  <shareOnSocialSite>Поделиться</shareOnSocialSite>
+  <viewMode>Представления</viewMode>
+  <linkToPortal>Доступ к порталу</linkToPortal>
+  <linkToPortal-help>Полная информация и доступ к данным.</linkToPortal-help>
+  <citationProposal>Предлагаемые ссылки</citationProposal>
+  <citationProposal-help>Это предложение было создано автоматически, check if the metadata authors did not specified custom citation requirements.</citationProposal-help>
+  <associatedResources>Связанные ресурсы</associatedResources>
+
+
+  <add-resource-id>Вычислить идентификатор ресурса</add-resource-id>
+  <add-resource-idHelp>Составить идентификатор ресурса из URL каталога и идентификатора метаданных (например, http://www.organization.org/catalogue/5391bf69-44bc-4ea0-8cc0-6cf6c3bc81ae).</add-resource-idHelp>
+  <add-extent-from-geokeywords>Вычислить экстент по ключевым словам
+  </add-extent-from-geokeywords>
+  <add-extent-from-geokeywordsHelp>Анализировать ключевые слова типа "место"
+    и добавлять соответствующий экстент.
+  </add-extent-from-geokeywordsHelp>
+  <extent>Ограничивающая рамка</extent>
+  <spatialExtent>Пространственный экстент</spatialExtent>
+  <freeTextKeywords>Прочие ключевые слова</freeTextKeywords>
+  <noThesaurusName>Ключевые слова</noThesaurusName>
+</strings>

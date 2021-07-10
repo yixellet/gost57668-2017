@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gco="http://standards.iso.org/iso/19115/-3/gco/1.0" xmlns:mcc="http://standards.iso.org/iso/19115/-3/mcc/1.0" xmlns:mco="http://standards.iso.org/iso/19115/-3/mco/1.0" elementFormDefault="qualified" targetNamespace="http://standards.iso.org/iso/19115/-3/mco/1.0" version="1.0">
+  <include schemaLocation="mco.xsd"/>
+  <import namespace="http://standards.iso.org/iso/19115/-3/gco/1.0" schemaLocation="../../../../19115/-3/gco/1.0/gco.xsd"/>
+  <import namespace="http://standards.iso.org/iso/19115/-3/mcc/1.0" schemaLocation="../../../../19115/-3/mcc/1.0/mcc.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element name="MD_ClassificationCode" substitutionGroup="gco:CharacterString" type="gco:CodeListValue_Type">
+    <annotation>
+      <documentation>Название грифа, ограничивающего пользование ресурсом</documentation>
+    </annotation>
+  </element>
+  <complexType name="MD_ClassificationCode_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="mco:MD_ClassificationCode"/>
+    </sequence>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="MD_Constraints" substitutionGroup="mcc:Abstract_Constraints" type="mco:MD_Constraints_Type">
+    <annotation>
+      <documentation>Ограничения на доступ и использование ресурса или метаданных</documentation>
+    </annotation>
+  </element>
+  <complexType name="MD_Constraints_Type">
+    <complexContent>
+      <extension base="mcc:Abstract_Constraints_Type">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="useLimitation" type="gco:CharacterString_PropertyType">
+            <annotation>
+              <documentation>Ограничения, влияющие на пригодность для использования ресурса или метаданных. Пример - "Не использовать для навигации"</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="constraintApplicationScope" type="mcc:MD_Scope_PropertyType">
+            <annotation>
+              <documentation>Пространственная и/или временная протяженность и/или уровень приложения ограничительных запретов</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="graphic" type="mcc:MD_BrowseGraphic_PropertyType">
+            <annotation>
+              <documentation>Графика/символ, указывающая(ий) на ограничение.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="reference" type="mcc:Abstract_Citation_PropertyType">
+            <annotation>
+              <documentation>Ссылка на пределы и ограничения. Пример - Авторское право, лицензионное соглашение и т.п.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="releasability" type="mco:MD_Releasability_PropertyType">
+            <annotation>
+              <documentation>Информация, касающаяся сторон, которым ресурс может или не может предоставляться</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="responsibleParty" type="mcc:Abstract_Responsibility_PropertyType">
+            <annotation>
+              <documentation>Сторона, ответственная за ограничения на ресурс</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="MD_Constraints_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="mco:MD_Constraints"/>
+    </sequence>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="MD_LegalConstraints" substitutionGroup="mco:MD_Constraints" type="mco:MD_LegalConstraints_Type">
+    <annotation>
+      <documentation>Ограничения и юридические предпосылки для доступа и использования ресурса или метаданных</documentation>
+    </annotation>
+  </element>
+  <complexType name="MD_LegalConstraints_Type">
+    <complexContent>
+      <extension base="mco:MD_Constraints_Type">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="accessConstraints" type="mco:MD_RestrictionCode_PropertyType">
+            <annotation>
+              <documentation>Ограничения на доступ применительно к обеспечению защиты конфиденциальности и интеллектуальной собственности и любые специальные ограничения на получение ресурса или метаданных</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="useConstraints" type="mco:MD_RestrictionCode_PropertyType">
+            <annotation>
+              <documentation>Ограничения применительно к обеспечению защиты конфиденциальности и интеллектуальной собственности и любые специальные ограничения и предупреждения на использование ресурса или метаданных</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="otherConstraints" type="gco:CharacterString_PropertyType">
+            <annotation>
+              <documentation>Другие ограничения и юридические предписания для доступа и использования ресурса или метаданных</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="MD_LegalConstraints_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="mco:MD_LegalConstraints"/>
+    </sequence>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="MD_Releasability" substitutionGroup="gco:AbstractObject" type="mco:MD_Releasability_Type">
+    <annotation>
+      <documentation>Информация, касающаяся сторон, которым ресурс может или не может предоставляться</documentation>
+    </annotation>
+  </element>
+  <complexType name="MD_Releasability_Type">
+    <complexContent>
+      <extension base="gco:AbstractObject_Type">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="addressee" type="mcc:Abstract_Responsibility_PropertyType">
+            <annotation>
+              <documentation>Сторона, которой ресурс отпускается</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="statement" type="gco:CharacterString_PropertyType">
+            <annotation>
+              <documentation>Формулировка релиза</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="disseminationConstraints" type="mco:MD_RestrictionCode_PropertyType">
+            <annotation>
+              <documentation>Компонент в определении предоставления</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="MD_Releasability_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="mco:MD_Releasability"/>
+    </sequence>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="MD_RestrictionCode" substitutionGroup="gco:CharacterString" type="gco:CodeListValue_Type">
+    <annotation>
+      <documentation>Ограничение(я), налагаемое(ые) на доступ к данным или их использование</documentation>
+    </annotation>
+  </element>
+  <complexType name="MD_RestrictionCode_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="mco:MD_RestrictionCode"/>
+    </sequence>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="MD_SecurityConstraints" substitutionGroup="mco:MD_Constraints" type="mco:MD_SecurityConstraints_Type">
+    <annotation>
+      <documentation>Ограничения, накладываемые на ресурс или метаданные в интересах национальной безопасности или т.п.</documentation>
+    </annotation>
+  </element>
+  <complexType name="MD_SecurityConstraints_Type">
+    <complexContent>
+      <extension base="mco:MD_Constraints_Type">
+        <sequence>
+          <element name="classification" type="mco:MD_ClassificationCode_PropertyType">
+            <annotation>
+              <documentation>Имя управляющих ограничений, накладываемых на ресурс или метаданные</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="userNote" type="gco:CharacterString_PropertyType">
+            <annotation>
+              <documentation>Объяснение применения юридических ограничений и других ограничений или юридических предписаний для получения и использования ресурса или метаданных</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="classificationSystem" type="gco:CharacterString_PropertyType">
+            <annotation>
+              <documentation>Имя классификационной системы</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="handlingDescription" type="gco:CharacterString_PropertyType">
+            <annotation>
+              <documentation>Дополнительная информация об ограничениях на управление ресурсом или метаданными</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="MD_SecurityConstraints_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="mco:MD_SecurityConstraints"/>
+    </sequence>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+</schema>

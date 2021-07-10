@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://geonetwork-opensource.org/schemas/schema-ident"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://geonetwork-opensource.org/schemas/schema-ident http://geonetwork-opensource.org/schemas/schema-ident/schema-ident.xsd">
+  <name>iso19115.gost</name>
+  <id>93f66207-621a-4610-313f-38494a52d121</id>
+  <version>1.0</version>
+  <appMinorVersionSupported>3.5.0</appMinorVersionSupported>
+  <title xml:lang="en">Geographic information &#45;&#45; Metadata</title>
+  <title xml:lang="ru">Пространственные данные &#45;&#45; Метаданные</title>
+  <description xml:lang="en"></description>
+  <standardUrl xml:lang="en">http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=32579</standardUrl>
+  <schemaLocation>http://standards.iso.org/iso/19115/-3/mds/2.0 http://standards.iso.org/iso/19115/-3/mds/2.0/mds.xsd</schemaLocation>
+  <autodetect xmlns:cit="http://standards.iso.org/iso/19115/-3/cit/2.0"
+              xmlns:mcc="http://standards.iso.org/iso/19115/-3/mcc/1.0"
+              xmlns:mco="http://standards.iso.org/iso/19115/-3/mco/1.0"
+              xmlns:mdb="http://standards.iso.org/iso/19115/-3/mdb/2.0"
+              xmlns:mrd="http://standards.iso.org/iso/19115/-3/mrd/1.0"
+              xmlns:mdq="http://standards.iso.org/iso/19157/-2/mdq/1.0"
+              xmlns:gco="http://standards.iso.org/iso/19115/-3/gco/1.0">
+    <elements type="root">
+      <mdb:MD_Metadata/>
+      <cit:CI_Responsibility/>
+      <cit:CI_Organisation/>
+      <mcc:MD_BrowseGraphic/>
+      <mrd:MD_Format/>
+      <mdq:DQ_DomainConsistency/>
+      <mdq:DQ_CompletenessCommission/>
+      <mdq:DQ_CompletenessOmission/>
+      <mdq:DQ_ConceptualConsistency/>
+      <mdq:DQ_FormatConsistency/>
+      <mdq:DQ_AbsoluteExternalPositionalAccuracy/>
+      <mdq:DQ_AccuracyOfATimeMeasurement/>
+      <mdq:DQ_Confidence/>
+      <mdq:DQ_GriddedDataPositionalAccuracy/>
+      <mdq:DQ_Homogeneity/>
+      <mdq:DQ_NonQuantitativeAttributeCorrectness/>
+      <mdq:DQ_QuantitativeAttributeAccuracy/>
+      <mdq:DQ_RelativeInternalPositionalAccuracy/>
+      <mdq:DQ_Representativity/>
+      <mdq:DQ_TemporalConsistency/>
+      <mdq:DQ_TemporalValidity/>
+      <mdq:DQ_ThematicClassificationCorrectness/>
+      <mdq:DQ_TopologicalConsistency/>
+      <mdq:DQ_UsabilityElement/>
+      <mco:MD_Constraints/>
+      <mco:MD_LegalConstraints/>
+      <mco:MD_SecurityConstraints/>
+    </elements>
+  </autodetect>
+</schema>

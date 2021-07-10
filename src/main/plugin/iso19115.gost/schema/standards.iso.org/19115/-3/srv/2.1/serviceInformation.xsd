@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gco="http://standards.iso.org/iso/19115/-3/gco/1.0" xmlns:mcc="http://standards.iso.org/iso/19115/-3/mcc/1.0" 
+  xmlns:mri="http://standards.iso.org/iso/19115/-3/mri/1.0" xmlns:srv="http://standards.iso.org/iso/19115/-3/srv/2.1" elementFormDefault="qualified" 
+  targetNamespace="http://standards.iso.org/iso/19115/-3/srv/2.1" version="2.0">
+  <include schemaLocation="srv.xsd"/>
+  <import namespace="http://standards.iso.org/iso/19115/-3/gco/1.0" schemaLocation="../../../../19115/-3/gco/1.0/gco.xsd"/>
+  <import namespace="http://standards.iso.org/iso/19115/-3/mcc/1.0" schemaLocation="../../../../19115/-3/mcc/1.0/mcc.xsd"/>
+  <import namespace="http://standards.iso.org/iso/19115/-3/mri/1.0" schemaLocation="../../../../19115/-3/mri/1.0/mri.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element name="DCPList" substitutionGroup="gco:CharacterString" type="gco:CodeListValue_Type">
+    <annotation>
+      <documentation>Класс информации, к которому обращается ссылающаяся сущность</documentation>
+    </annotation>
+  </element>
+  <complexType name="DCPList_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="srv:DCPList"/>
+    </sequence>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="SV_CoupledResource" substitutionGroup="gco:AbstractObject" type="srv:SV_CoupledResource_Type">
+    <annotation>
+      <documentation>Связи, указанные operationName (обязательный атрибут из SV_OperationMetadata), с ресурсом, идентифицированным посредством идентификатора</documentation>
+    </annotation>
+  </element>
+  <complexType name="SV_CoupledResource_Type">
+    <complexContent>
+      <extension base="gco:AbstractObject_Type">
+        <sequence>
+          <element minOccurs="0" name="scopedName" type="gco:ScopedName_PropertyType">
+            <annotation>
+              <documentation>Идентификатор области ресурса в контексте данного экземпляра сервиса. Примечание - Имя ресурса (то есть набора данных), как оно используется экземпляром сервиса. Пример - Имя слоя или имя типа объекта</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="resourceReference" type="mcc:Abstract_Citation_PropertyType">
+            <annotation>
+              <documentation>Ссылка на ресурс, над которым действует сервис.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="operation" type="srv:SV_OperationMetadata_PropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="resource" type="mri:MD_DataIdentification_PropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SV_CoupledResource_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="srv:SV_CoupledResource"/>
+    </sequence>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="SV_CouplingType" substitutionGroup="gco:CharacterString" type="gco:CodeListValue_Type">
+    <annotation>
+      <documentation>Класс информации, к которому принадлежит ссылающаяся сущность</documentation>
+    </annotation>
+  </element>
+  <complexType name="SV_CouplingType_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="srv:SV_CouplingType"/>
+    </sequence>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="SV_OperationChainMetadata" substitutionGroup="gco:AbstractObject" type="srv:SV_OperationChainMetadata_Type">
+    <annotation>
+      <documentation>Информация о цепочке операций</documentation>
+    </annotation>
+  </element>
+  <complexType name="SV_OperationChainMetadata_Type">
+    <complexContent>
+      <extension base="gco:AbstractObject_Type">
+        <sequence>
+          <element name="name" type="gco:CharacterString_PropertyType">
+            <annotation>
+              <documentation>Имя, использованное сервисом для этой цепочки</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="description" type="gco:CharacterString_PropertyType">
+            <annotation>
+              <documentation>Описательное объяснение сервисов в цепочке и результат на выходе</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" name="operation" type="srv:SV_OperationMetadata_PropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SV_OperationChainMetadata_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="srv:SV_OperationChainMetadata"/>
+    </sequence>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="SV_OperationMetadata" substitutionGroup="gco:AbstractObject" type="srv:SV_OperationMetadata_Type">
+    <annotation>
+      <documentation>Описывает ключ одного и только одного метода, предоставляемого сервисом</documentation>
+    </annotation>
+  </element>
+  <complexType name="SV_OperationMetadata_Type">
+    <complexContent>
+      <extension base="gco:AbstractObject_Type">
+        <sequence>
+          <element name="operationName" type="gco:CharacterString_PropertyType">
+            <annotation>
+              <documentation>Уникальный идентификатор для этого интерфейса</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" name="distributedComputingPlatform" type="srv:DCPList_PropertyType">
+            <annotation>
+              <documentation>Распространяемые компьютерные платформы, на которых операция может быть выполнена</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="operationDescription" type="gco:CharacterString_PropertyType">
+            <annotation>
+              <documentation>Описание в виде свободного текста цели и результата операции</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="invocationName" type="gco:CharacterString_PropertyType">
+            <annotation>
+              <documentation>Имя, используемое для вызова этого интерфейса в контексте DCP. Это имя идентично для всех DCP</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" name="connectPoint" type="mcc:Abstract_OnlineResource_PropertyType">
+            <annotation>
+              <documentation>Дескриптор для доступа к интрефейсу сервиса</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="parameter" type="srv:SV_Parameter_PropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="dependsOn" type="srv:SV_OperationMetadata_PropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SV_OperationMetadata_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="srv:SV_OperationMetadata"/>
+    </sequence>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <!--
+    SV_Parameter was added to mcc namespace in order to support the revision of ISO 19115-2
+  -->
+  <element name="SV_Parameter" substitutionGroup="mcc:Abstract_Parameter" type="srv:SV_Parameter_Type">
+    <annotation>
+      <documentation>Информация о параметрах</documentation>
+    </annotation>
+  </element>
+  <complexType name="SV_Parameter_Type">
+    <complexContent>
+      <extension base="mcc:Abstract_Parameter_Type">
+        <sequence>
+          <element name="name" type="gco:MemberName_PropertyType">
+            <annotation>
+              <documentation>Имя, используемое сервисом для этого параметра</documentation>
+            </annotation>
+          </element>
+          <element name="direction" type="srv:SV_ParameterDirection_PropertyType">
+            <annotation>
+              <documentation>Указание на то, является ли параметр входным для сервиса, выходным или и тем, и другим</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="description" type="gco:CharacterString_PropertyType">
+            <annotation>
+              <documentation>Описательное объяснение роли параметра</documentation>
+            </annotation>
+          </element>
+          <element name="optionality" type="gco:Boolean_PropertyType">
+            <annotation>
+              <documentation>Указание на то, является ли параметр обязательным</documentation>
+            </annotation>
+          </element>
+          <element name="repeatability" type="gco:Boolean_PropertyType">
+            <annotation>
+              <documentation>Указание на то, может ли использоваться более одного значения параметра</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SV_Parameter_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="srv:SV_Parameter"/>
+    </sequence>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="SV_ParameterDirection" substitutionGroup="gco:CharacterString" type="srv:SV_ParameterDirection_Type">
+    <annotation>
+      <documentation>Класс информации, к которому обращается ссылающаяся сущность</documentation>
+    </annotation>
+  </element>
+  <simpleType name="SV_ParameterDirection_Type">
+    <annotation>
+      <documentation>Класс информации, к которому обращается ссылающаяся сущность</documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="in">
+        <annotation>
+          <documentation>Параметр является входным параметром для экземпляра сервиса</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="out">
+        <annotation>
+          <documentation>Параметр является выходным параметром для экземпляра сервиса</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="in/out">
+        <annotation>
+          <documentation>Параметр является входным и выходным параметром для экземпляра сервиса</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <complexType name="SV_ParameterDirection_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="srv:SV_ParameterDirection"/>
+    </sequence>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="SV_ServiceIdentification" substitutionGroup="mri:AbstractMD_Identification" type="srv:SV_ServiceIdentification_Type">
+    <annotation>
+      <documentation>Идентификация возможностей, которые поставщик сервисов делает доступными для пользователей сервисов через набор интерфейсов, которые определяют поведение.</documentation>
+    </annotation>
+  </element>
+  <complexType name="SV_ServiceIdentification_Type">
+    <complexContent>
+      <extension base="mri:AbstractMD_Identification_Type">
+        <sequence>
+          <element name="serviceType" type="gco:GenericName_PropertyType">
+            <annotation>
+              <documentation>Имя типа сервиса. Пример - 'Поиск', 'отображение', 'загрузка', 'преобразование' или 'вызов'</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="serviceTypeVersion" type="gco:CharacterString_PropertyType">
+            <annotation>
+              <documentation>Версия сервиса, которая поддерживает поиск, основанный на версии serviceType</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="accessProperties" type="mcc:Abstract_StandardOrderProcess_PropertyType">
+            <annotation>
+              <documentation>Информация о наличии сервисов, включая: тариф; дату и время планируемого наличия; инструкции по заказу; изменение</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="couplingType" type="srv:SV_CouplingType_PropertyType">
+            <annotation>
+              <documentation>Тип стыковки между сервисами и связанные даты (если существует)</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="coupledResource" type="srv:SV_CoupledResource_PropertyType">
+            <annotation>
+              <documentation>Дальнейшее описание стыковочных данных в случае тесно связанных сервисов</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="operatedDataset" type="mcc:Abstract_Citation_PropertyType">
+            <annotation>
+              <documentation>Предоставляет ссылку на ресурс, над которым действует сервис</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="profile" type="mcc:Abstract_Citation_PropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="serviceStandard" type="mcc:Abstract_Citation_PropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="containsOperations" type="srv:SV_OperationMetadata_PropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="operatesOn" type="mri:MD_DataIdentification_PropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="containsChain" type="srv:SV_OperationChainMetadata_PropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SV_ServiceIdentification_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="srv:SV_ServiceIdentification"/>
+    </sequence>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+</schema>
